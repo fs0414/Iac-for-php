@@ -1,6 +1,12 @@
 version: '3.8'
 services:
   app:
+    container_name: php_container
+    image: php_aws_cli_sdk:2.0
     build: .
+    ports:
+      - "8000:80"
     volumes:
       - .:/app
+      - ./index.php:/var/www/html/index.php
+      - ./php.ini:/usr/local/etc/php/php.ini
